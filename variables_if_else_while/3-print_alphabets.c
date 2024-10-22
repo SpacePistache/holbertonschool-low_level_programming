@@ -8,12 +8,10 @@ int main(void)
 {
 	int al;
 
-	for (al = 97; al > 123; al++)
+	for (al = 97; al < 123; al++)
 		putchar(al);
 
-	return (0);
-
-	for (al = 65; al > 91; al++)
+	for (al = 65; al < 91; al++)
 		putchar(al);
 
 	putchar('\n');
