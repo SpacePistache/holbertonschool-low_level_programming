@@ -11,6 +11,7 @@ int main(void)
 	for (al = 97; al > 123; al++)
 		putchar(al);
 
+	return (0);
 
 	for (al = 65; al > 91; al++)
 		putchar(al);
