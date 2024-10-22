@@ -12,7 +12,7 @@ int main(void)
 	for (al = 97; al < 123; al++)
 		putchar(al);
 
-	putchar(' ');
+	putchar('\n');
 
 	return (0);
 }
