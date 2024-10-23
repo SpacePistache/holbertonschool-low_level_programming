@@ -8,8 +8,8 @@ int main(void)
 {
 int al;
 
-for (al = 'z'; al <= 'a'; al--)
-	putchar(al);
+for (al = 122; al >=  97; al--)
+	putchar (al);
 
 putchar('\n');
 
