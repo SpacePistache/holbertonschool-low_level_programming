@@ -1,4 +1,3 @@
-#include "_putchar.c"
 #include "main.h"
 /**
 * main - check the code
@@ -9,7 +8,7 @@ void print_alphabet(void)
 {
 int al;
 
-for (al = 97; al <= 123; al++)
+for (al = 97; al <= 122; al++)
 	_putchar(al);
 _putchar('\n');
 }
