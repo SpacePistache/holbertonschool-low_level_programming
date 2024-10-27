@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * int _abs(int x) - finds the absolute value of an integer.
+ * _abs - finds the absolute value of an integer.
  * @x: represents the integer.
  * Return: x for positive number.
  */
