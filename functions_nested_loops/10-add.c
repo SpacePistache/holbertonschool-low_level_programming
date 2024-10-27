@@ -19,10 +19,6 @@ int add(int a, int b)
 	{
 		_putchar('0');
 	}
-	else
-	{
-	return (result);
-	}
 
 	return (result);
 }
