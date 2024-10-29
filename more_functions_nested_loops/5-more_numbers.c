@@ -1,7 +1,6 @@
 #include "main.h"
 /**
- *print_most_numbers - print numbers except for two values.
- *
+ *more_numbers - print numbers except for two values.
  *Return: None, using void.
  */
 void more_numbers(void)
