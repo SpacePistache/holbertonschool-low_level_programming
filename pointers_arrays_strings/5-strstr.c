@@ -1,9 +1,9 @@
 #include "main.h"
 #include <stddef.h>
 /**
- * _strspn - string span.
- * @s: Is variable
- * @accept: doin things
+ * _strstr - finding a string within a string.
+ * @haystack: string to compare
+ * @needle: string
  *
  * Return: returning the span.
  */
