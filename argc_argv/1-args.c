@@ -3,15 +3,16 @@
 /**
  * main - Is the function.
  * @argc: Arguments supplied to program
- * @argv: Array of strings
+ * @argv: Array of strings containing the arguments
  *
  * Return: Returns the argc and argv
  */
 int main(int argc, char *argv[])
 {
-	(void) argv;
+	(void)argv;
 
-	printf("argc = %d\n", argc);
+	printf("%d\n", argc - 1);
 
 	return (0);
+
 }
