@@ -1,37 +1,38 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * str_concat - Concatenates two strings, allocating memory for the result.
- * @s1: The first string.
- * @s2: The second string.
+ * alloc_grid - Returns a pointer to a 2-dimensional array of integers.
+ * @width: The width of the grid.
+ * @height: The height of the grid.
  *
- * Return: Pointer to the concatenated string, or NULL on failure.
+ * Return: Pointer to the 2D array, or NULL on failure or if width/height <= 0.
  */
-char *str_concat(char *s1, char *s2)
+int **alloc_grid(int width, int height)
 {
-	int len1 = 0, len2 = 0, i, j;
-	char *concat_str;
+	int **grid;
+	int i, j;
 
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
-
-	while (s1[len1] != '\0')
-		len1++;
-	while (s2[len2] != '\0')
-		len2++;
-
-	concat_str = malloc(sizeof(char) * (len1 + len2 + 1));
-	if (concat_str == NULL)
+	if (width <= 0 || height <= 0)
 		return (NULL);
-	for (i = 0; i < len1; i++)
-		concat_str[i] = s1[i];
 
-	for (j = 0; j < len2; j++, i++)
-		concat_str[i] = s2[j];
+	grid = malloc(height * sizeof(int *));
+	if (grid == NULL)
+		return (NULL);
 
-	concat_str[i] = '\0';
+	for (i = 0; i < height; i++)
+	{
+		grid[i] = malloc(width * sizeof(int));
+		if (grid[i] == NULL)
+		{
+		while (i-- > 0)
+			free(grid[i]);
+		free(grid);
+		return (NULL);
+		}
 
-	return (concat_str);
+		for (j = 0; j < width; j++)
+			grid[i][j] = 0;
+	}
+
+	return (grid);
 }
