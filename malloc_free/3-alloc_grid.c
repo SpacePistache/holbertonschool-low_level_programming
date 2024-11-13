@@ -1,38 +1,37 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 /**
- * **alloc_grid - Doing a grid thing.
- * @width: width of grid
- * @height: height of grid.
+ * str_concat - Concatenates two strings, allocating memory for the result.
+ * @s1: The first string.
+ * @s2: The second string.
  *
- * Return: grid.
+ * Return: Pointer to the concatenated string, or NULL on failure.
  */
-int **alloc_grid(int width, int height)
+char *str_concat(char *s1, char *s2)
 {
-	int **grid, i;
+	int len1 = 0, len2 = 0, i, j;
+	char *concat_str;
 
-	if (width <= 0 || height <= 0)
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+
+	while (s1[len1] != '\0')
+		len1++;
+	while (s2[len2] != '\0')
+		len2++;
+
+	concat_str = malloc(sizeof(char) * (len1 + len2 + 1));
+	if (concat_str == NULL)
 		return (NULL);
+	for (i = 0; i < len1; i++)
+		concat_str[i] = s1[i];
 
-	grid = malloc(height * sizeof(int *));
-	if (grid == NULL)
-		return (NULL);
+	for (j = 0; j < len2; j++, i++)
+		concat_str[i] = s2[j];
 
-	for (i = 0; i < height; i++)
-	{
-		grid[i] = malloc(width * sizeof(int));
-		if (grid[i] == NULL)
-		{
-			while (i > 0)
-				free(grid[--i]);
-		free(grid);
-			return (NULL);
-		}
+	concat_str[i] = '\0';
 
-	memset(grid[i], 0, width * sizeof(int));
-	}
-
-	return (grid);
+	return (concat_str);
 }
