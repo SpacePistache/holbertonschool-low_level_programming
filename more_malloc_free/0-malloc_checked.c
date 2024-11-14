@@ -2,11 +2,10 @@
 #include <stdlib.h>
 #include <stddef.h>
 /**
- * free_grid - Freeing the grid.
- * @grid: Freeing the grid
- * @height: Height
+ * malloc_checked - allocating memory.
+ * @b:Integer value
  *
- * Return: We voidin' boys.
+ * Return: The pointer.
  */
 void *malloc_checked(unsigned int b)
 {
@@ -14,7 +13,7 @@ void *malloc_checked(unsigned int b)
 
 	if (ptr == NULL)
 	{
-		exit (98);
+		exit(98);
 	}
 	return (ptr);
 }
