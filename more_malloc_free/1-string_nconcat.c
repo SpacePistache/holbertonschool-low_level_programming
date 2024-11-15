@@ -1,6 +1,5 @@
-#include "main.h"
-#include <stddef.h>
-#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 /**
  * string_nconcat - Concatenate two strings.
  * @s1: First string
@@ -11,30 +10,34 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	int length1 = 0, length2 = 0, i, j;
-	char *len1_len2;
+	unsigned int len1 = 0, len2 = 0;
+	char *result;
 
-	if (s1 != 0)
+	len1 = (s1 != NULL) ? strlen(s1) : 0;
+	len2 = (s2 != NULL) ? strlen(s2) : 0;
+
+	if (n > len2)
+	{
+		n = len2;
+	}
+
+	result = malloc(len1 + n + 1);
+	if (result == NULL)
 	{
 		return (NULL);
-		length1 = strlen(s1);
 	}
-	if (s2 != 0)
-	{
-		return (NULL);
-		length2 = strlen(s2);
-	}
-	
-	if (n >= length2)
-	{
-		n = length2;
-	}
-	len1_len2 = malloc(length1 + n + 1);
-	if (len1_len2 == NULL)
-	{
-		return (NULL); 
-	} 
 
-	for (i = 0; i < length1; i++)
+	if (s1 != NULL)
+	{
+		memcpy(result, s1, len1);
+	}
 
+	if (s2 != NULL)
+	{
+		memcpy(result + len1, s2, n);
+	}
+
+	result[len1 + n] = '\0';
+
+	return (result);
 }
