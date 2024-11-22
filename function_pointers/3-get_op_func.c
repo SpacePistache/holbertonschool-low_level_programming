@@ -1,11 +1,11 @@
 #include "3-calc.h"
 #include <stddef.h>
 /**
- * op_add_func - function, return a and b
+ * get_op_func - Selects the correct function to perform the operation
+ * @s: The operator passed as an argument
  *
- * return: result of a and b
+ * Return: Pointer to function and  operator or NULL
  */
-
 int (*get_op_func(char *s))(int, int)
 {
 	op_t ops[] = {
