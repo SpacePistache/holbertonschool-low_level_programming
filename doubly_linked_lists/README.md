@@ -1,0 +1,1 @@
+Doubly linked lists, basically the same as their single counter parts, except they can point forwards and backwards(technically they can point wherever we want them to point). The head node will have have its prev pointer equal to NULL and same for the last node where its next pointer will point to NULL.
