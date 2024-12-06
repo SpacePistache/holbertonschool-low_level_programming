@@ -13,6 +13,9 @@ dlistint_t *new_node;
 
 new_node = malloc(sizeof(dlistint_t));
 
+if (new_node == NULL)
+return (NULL);
+
 if (head == NULL)
 return (NULL);
 
