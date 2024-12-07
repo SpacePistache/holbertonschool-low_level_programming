@@ -1,6 +1,6 @@
 #ifndef LISTS_H
 #define LISTS_H
 
-void print_binary(unsigned long int n);
+int get_bit(unsigned long int n, unsigned int index);
 
 #endif
