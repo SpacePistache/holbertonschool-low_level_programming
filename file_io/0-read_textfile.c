@@ -1,19 +1,14 @@
 #include <fcntl.h>
 #include <unistd.h>
-#include <stdlib.h>
-#include "main.h"
-/**
- * read_textfile - Reads a text file and prints it to the POSIX standard output
- * @filename: Name of the file to read
- * @letters: Number of letters to read and print
- *
- * Return: Actual number of letters read and printed, or 0 on failure
- */
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <stdio.h>
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 int fd;
 ssize_t bytes_read, bytes_written;
-char *buffer;
+char buffer[BUFSIZ];
 
 if (filename == NULL)
 return (0);
@@ -22,33 +17,26 @@ fd = open(filename, O_RDONLY);
 if (fd == -1)
 return (0);
 
-buffer = malloc(sizeof(char) * letters);
-if (buffer == NULL)
-{
-close(fd);
-return (0);
-}
-
 bytes_read = read(fd, buffer, letters);
 if (bytes_read == -1)
 {
-free(buffer);
 close(fd);
 return (0);
 }
 
-for (bytes_written = 0; bytes_written < bytes_read; bytes_written++)
+bytes_written = 0;
+while (bytes_written < bytes_read)
 {
 if (_putchar(buffer[bytes_written]) == -1)
 {
-free(buffer);
 close(fd);
 return (0);
 }
+bytes_written++;
 }
 
-free(buffer);
+
 close(fd);
 
-return (bytes_read);
+return (bytes_written);
 }
