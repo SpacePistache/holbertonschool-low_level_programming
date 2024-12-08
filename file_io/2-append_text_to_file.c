@@ -23,7 +23,6 @@ if (text_content)
 {
 while (text_content[len])
 len++;
-     
 written_bytes = write(fd, text_content, len);
 if (written_bytes == -1 || written_bytes != len)
 {
